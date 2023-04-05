@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+   <ion-item *ngFor="let lista of listas" (click)="showInfoModal(lista)">
+      <ion-avatar>
+        <img [src]="lista.image">
+      </ion-avatar>
+      <ion-label>
+        {{lista.name}} {{lista.email}}
+      </ion-label>
+    </ion-item>
+</ion-content>
