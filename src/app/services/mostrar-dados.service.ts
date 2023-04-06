@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { lista } from '../core/lista';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MostrarDadosService {
 
-  private data: any = [];
+  private data: lista[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  setData(index: string, data: any): boolean {
-    if (index) {
-      this.data[index] = data;
-      return true;
+
+
+  getData() {
+    return this.http.get<any>('../../assets/content.json')
+      .toPromise()
+      .then(res => <lista[]>res.data)
+      .then(data => { return data; });
     }
-    return false;
-  }
-
-  getData(index: string): any {
-    if (index) {
-      return this.data[index];
-    }
-    return null;
-  }
 
 }

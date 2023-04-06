@@ -30,8 +30,6 @@ export class ContatoPage implements OnInit {
     this.router.navigate([`../${route}`]);
   }
 
-  ngAfterContentChecked() {
-    this.contact = this.MostrarDadosService.getData('contact');
-  }
+
 
 }
