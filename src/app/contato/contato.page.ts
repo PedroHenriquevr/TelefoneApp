@@ -22,6 +22,8 @@ export class ContatoPage implements OnInit {
   ngOnInit() {
   }
 
+
+
   irPara(rota: String){
     this.router.navigate([rota])
   }

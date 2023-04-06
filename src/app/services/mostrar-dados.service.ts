@@ -12,6 +12,13 @@ export class MostrarDadosService {
 
   constructor(private http: HttpClient) { }
 
+  setData(index: string, nomes: any): boolean {
+    if (index) {
+      this.data = this.data;
+      return true;
+    }
+    return false;
+  }
 
 
   getData() {

@@ -23,4 +23,10 @@ export class HomePage {
   ngOnInit() {
     this.mostrarDadosService.getData().then(lista => this.listas = lista);
 }
+
+showInfoModal(contact: lista) {
+  this.mostrarDadosService.setData('contato', contact);
+  this.router.navigateByUrl('/contato');
+}
+
 }
