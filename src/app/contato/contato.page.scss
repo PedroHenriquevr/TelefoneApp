@@ -1,0 +1,47 @@
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3rem;
+  height: 100%;
+
+  .foto{
+    justify-content: center;
+    align-items: center;
+
+    ion-avatar{
+      height: 10rem;
+      width: 10rem;
+    }
+  }
+
+  .conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    #name{
+      font-size: 2rem;
+      text-transform: capitalize;
+    }
+  }
+
+  .resultados{
+    background-color: rgb(77, 77, 77);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+
+    ion-icon{
+      padding-top: 10px;
+    }
+
+    h1{
+      font-size: 1rem;
+      padding: 0 1rem 0 0.2rem;
+    }
+  }
+}

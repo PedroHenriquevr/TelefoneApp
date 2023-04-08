@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MostrarDadosService } from '../services/mostrar-dados.service';
 import { lista } from '../core/lista';
 
+
 @Component({
   selector: 'app-contato',
   templateUrl: './contato.page.html',
@@ -13,25 +14,26 @@ import { lista } from '../core/lista';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class ContatoPage implements OnInit {
+export class ContatoPage {
 
-  contact?: lista;
+  public data?: lista;
 
-  constructor(private MostrarDadosService: MostrarDadosService, private router: Router) { }
+  constructor(private mostrarDadosService: MostrarDadosService, private router: Router) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    const storedData = sessionStorage.getItem('data');
+  if (storedData) {
+    this.data = JSON.parse(storedData);
+  } else {
+    // se não houver dados no sessionStorage, busca-os do serviço
+    this.data = this.mostrarDadosService.data;
+    // armazena os dados no sessionStorage
+    sessionStorage.setItem('data', JSON.stringify(this.data));
+  }
   }
 
-
-
-  irPara(rota: String){
-    this.router.navigate([rota])
+  voltar(){
+    this.router.navigateByUrl('/home');
+    sessionStorage.removeItem('data');
   }
-
-  goToRoute(route: string) {
-    this.router.navigate([`../${route}`]);
-  }
-
-
-
 }

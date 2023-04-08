@@ -1,3 +1,16 @@
+ion-item::part(native) {
+  color: #fff;
+
+}
+
 ion-item{
-  height: 5rem;
+  ion-label{
+    padding-left: 1rem;
+  }
+}
+
+ion-item::part(detail-icon) {
+  color: white;
+  opacity: 1;
+  font-size: 20px;
 }

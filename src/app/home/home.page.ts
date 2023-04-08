@@ -16,17 +16,16 @@ export class HomePage {
   listas: lista[] = [];
 
   constructor(
-    private mostrarDadosService: MostrarDadosService,
-    private router: Router
+    private mostrarDadosService: MostrarDadosService, private route: Router
   ) {}
 
-  ngOnInit() {
-    this.mostrarDadosService.getData().then(lista => this.listas = lista);
-}
+  ngOnInit(): void {
+    this.mostrarDadosService.getAll().then(lista => this.listas = lista);
+  }
 
-showInfoModal(contact: lista) {
-  this.mostrarDadosService.setData('contato', contact);
-  this.router.navigateByUrl('/contato');
-}
+  showInfoModal(contact: lista) {
+    this.mostrarDadosService.setData('contact', contact);
+    this.route.navigateByUrl('/contato');
+  }
 
 }

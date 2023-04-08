@@ -9,17 +9,17 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">contatos</ion-title>
     </ion-toolbar>
   </ion-header>
 
 
-   <ion-item *ngFor="let lista of listas">
+   <ion-item button detail lines="full" *ngFor="let lista of listas" (click)="showInfoModal(lista)" >
       <ion-avatar>
         <img [src]="lista.image">
       </ion-avatar>
       <ion-label>
-        {{lista.name}} {{lista.email}}
+        {{lista.name}}
       </ion-label>
     </ion-item>
 </ion-content>
